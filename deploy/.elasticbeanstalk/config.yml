@@ -1,0 +1,20 @@
+branch-defaults:
+  default:
+    environment: AskalienServerAdmin-env
+environment-defaults:
+  AskalienServer-env:
+    branch: null
+    repository: null
+global:
+  application_name: askalien-server-admin
+  default_ec2_keyname: mythi
+  default_platform: arn:aws:elasticbeanstalk:us-east-1::platform/Java 8 running on
+    64bit Amazon Linux/2.5.5
+  default_region: us-east-1
+  include_git_submodules: true
+  instance_profile: null
+  platform_name: null
+  platform_version: null
+  profile: null
+  sc: null
+  workspace_type: Application
