@@ -203,7 +203,7 @@ public class AnswerServiceTests {
 	@Test
 	public void getTopAnswersFeedBack(){
 		List<Answer> topAnswers = service.getTopAnswers(true);
-		assertTrue(topAnswers.get(0).getClicks()>=5);
+		assertTrue(topAnswers.get(0).getClicks()>=3);
 		
 		for(int i=1;i<topAnswers.size();i++)
 			assertTrue(topAnswers.get(i-1).getClicks()>=topAnswers.get(i).getClicks());
