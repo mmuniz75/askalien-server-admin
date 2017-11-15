@@ -9,7 +9,7 @@ node {
    }
 
    stage('test') {
-     sh "mkdir /usr/share/tomcat8/.local/lucene"
+     sh "mkdir -p /usr/share/tomcat8/.local/lucene"
      env.LUCENE_INDEX_DIR="/usr/share/tomcat8/.local/lucene"
      sh "'${mvnHome}/bin/mvn' -DSPRING_DATASOURCE_URL=jdbc:postgresql://${POSTGRESQL_TEST_SERVICE_HOST}:5432/mythidb_test -DSPRING_DATASOURCE_USERNAME=${POSTGRESQL_TEST_USER} -DSPRING_DATASOURCE_PASSWORD=${POSTGRESQL_TEST_PASSWORD} -DSPRING_JPA_HIBERNATE_DDL_AUTO=none -DSPRING_JPA_DATABASE_PLATFORM=org.hibernate.dialect.PostgreSQLDialect test"
      sh "rm -R /usr/share/tomcat8/.local/lucene"
