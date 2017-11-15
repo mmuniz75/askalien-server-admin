@@ -24,8 +24,8 @@ node {
      sh "sed -i -e 's|<POSTGRESQL_SERVICE_HOST>|${POSTGRESQL_SERVICE_HOST}|g' deploy/.ebextensions/environmentvariables.config"
      sh "sed -i -e 's|<POSTGRESQL_PASSWORD>|${POSTGRESQL_PASSWORD}|g' deploy/.ebextensions/environmentvariables.config"
      sh "sed -i -e 's|<POSTGRESQL_USER>|${POSTGRESQL_USER}|g' deploy/.ebextensions/environmentvariables.config"
-     sh "sed -i -e 's|<USER_GUESS>|${USER_GUESS}|g' deploy/.ebextensions/environmentvariables.config"
-     sh "sed -i -e 's|<USER_GUESS_PASSWORD>|${USER_GUESS_PASSWORD}|g' deploy/.ebextensions/environmentvariables.config"
+     sh "sed -i -e 's|<USER_GUEST>|${USER_GUEST}|g' deploy/.ebextensions/environmentvariables.config"
+     sh "sed -i -e 's|<USER_GUEST_PASSWORD>|${USER_GUEST_PASSWORD}|g' deploy/.ebextensions/environmentvariables.config"
      sh "sed -i -e 's|<USER_ADMIN>|${USER_ADMIN}|g' deploy/.ebextensions/environmentvariables.config"
      sh "sed -i -e 's|<USER_ADMIN_PASSWORD>|${USER_ADMIN_PASSWORD}|g' deploy/.ebextensions/environmentvariables.config"
    }
