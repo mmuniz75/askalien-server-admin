@@ -1,6 +1,7 @@
 package edu.muniz.askalien.rest;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,5 +19,10 @@ public class CountryRest {
 	@RequestMapping("/countries")
 	public List<Country> getCountries(){
 		return service.getCountryQuestions();
+	}
+	
+	@RequestMapping("/countriesCode")
+	public Map<String,Long> getCountryQuestionsByCode(){
+		return service.getCountryQuestionsByCode();
 	}
 }
