@@ -25,13 +25,35 @@ public class CountryService {
 		}
 		mapCountries.put("RUSSIAN FEDERATION","ru");
 		mapCountries.put("NEPAL","ne");
+		mapCountries.put("BARBADOS","bb");
+		mapCountries.put("GEORGIA","ka");
+		mapCountries.put("TRINIDAD AND TOBAGO","tt");
+		mapCountries.put("KAZAKHSTAN","kk");
+		mapCountries.put("CAPE VERDE","cv");
+		mapCountries.put("MADAGASCAR","mg");
+		mapCountries.put("GUAM","gu");
+		mapCountries.put("NIGERIA","ng");
+		mapCountries.put("GUYANA","gy");
+		mapCountries.put("SYRIAN ARAB REPUBLIC","sy");
+		mapCountries.put("KYRGYZSTAN","kg");
+		mapCountries.put("BOTSWANA","bw");
+		mapCountries.put("AZERBAIJAN","az");
+		mapCountries.put("SURINAME","sr");
+		mapCountries.put("ARMENIA","hy");
+		mapCountries.put("BELIZE","bz");
+		mapCountries.put("BANGLADESH","bd");
+		mapCountries.put("TANZANIA","tz");
+		mapCountries.put("MONGOLIA","mn");
+		mapCountries.put("IRAN","ir");
+		mapCountries.put("ZIMBABWE","zw");
+		mapCountries.put("CAMBODIA","kh");
 		
 	}
 	
 	public static String getCountryCode(String country){
 		String code = mapCountries.get(country);
 		if(code==null){
-			System.out.println("**** COUNTRY " + country + " does not have code");
+			System.out.println("mapCountries.put(\""+ country +"\",\"\");");
 			code = country;
 		}
 		return code;
@@ -44,11 +66,11 @@ public class CountryService {
 		return countryRepo.getCountryQuestions();
 	}
 	
-	public Map<String,Long> getCountryQuestionsByCode(){
+	public Map<String,String> getCountryQuestionsByCode(){
 		List<Country> countryQuestions = countryRepo.getCountryQuestions();
-		Map<String,Long> countryQuestionsByCode = 
+		Map<String,String> countryQuestionsByCode = 
 				countryQuestions.stream()
-				.collect(Collectors.toMap(country -> CountryService.getCountryCode(country.getCountry()), Country::getCountQuestions));
+				.collect(Collectors.toMap(country -> CountryService.getCountryCode(country.getCountry()), country -> country.getCountQuestions().toString()));
 		
 
 		return countryQuestionsByCode;
