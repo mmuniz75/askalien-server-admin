@@ -38,4 +38,9 @@ public class QuestionRest {
 		return service.getQuestion(id);
 		
 	}
+		
+	@RequestMapping("/questions/count")
+	public Long getCountQuestions(){
+		return service.getCountQuestions();
+	}
 }

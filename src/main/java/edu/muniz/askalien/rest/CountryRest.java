@@ -22,7 +22,7 @@ public class CountryRest {
 	}
 	
 	@RequestMapping("/countriesCode")
-	public Map<String,Long> getCountryQuestionsByCode(){
+	public Map<String,String> getCountryQuestionsByCode(){
 		return service.getCountryQuestionsByCode();
 	}
 }
