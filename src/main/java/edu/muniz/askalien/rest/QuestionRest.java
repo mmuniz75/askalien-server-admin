@@ -43,4 +43,11 @@ public class QuestionRest {
 	public Long getCountQuestions(){
 		return service.getCountQuestions();
 	}
+	
+	@RequestMapping("/questions/{id}")
+	public List<Question> getQuestionByAnswerId(@PathVariable Integer id){
+		return service.getQuestionsByAnwerId(id);
+		
+	}
+
 }

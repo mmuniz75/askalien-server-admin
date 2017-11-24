@@ -80,6 +80,14 @@ public class Answer implements Serializable,Model,Comparable<Answer>{
 			
 		return date;
 	}
+	
+	public Integer getVideoNumber() {
+		Integer number = null;
+		if(video!=null && video.getNumber()!=null)
+			number = video.getNumber();
+			
+		return number;
+	}
 
 	@Transient
 	private Float score;

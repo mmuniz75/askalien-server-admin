@@ -41,4 +41,8 @@ public class QuestionService{
 		return questionRepo.findCountCountries(); 
 	}	
 	
+	public List<Question> getQuestionsByAnwerId(Integer id){
+		return questionRepo.findByAnswerId(id);
+	}
+	
 }

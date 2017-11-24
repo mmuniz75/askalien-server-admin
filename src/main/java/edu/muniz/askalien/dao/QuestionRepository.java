@@ -30,5 +30,7 @@ public interface QuestionRepository extends CrudRepository<Question, Integer>,Qu
 	@Query("SELECT count(DISTINCT question.country) FROM Question question")
 	public Long findCountCountries();
 	
+	public List<Question> findByAnswerId(Integer id);
+	
 			
 }
