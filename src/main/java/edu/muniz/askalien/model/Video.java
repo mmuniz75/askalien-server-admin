@@ -68,4 +68,13 @@ public class Video implements Model,Serializable{
 		}	
 		return date;
 	}
+	
+	public String getFormatedDate() {
+		String date = "";
+		if(creationDate!=null){
+			SimpleDateFormat dt1 = new SimpleDateFormat("yyyy-MM-dd");
+			date = dt1.format(creationDate);
+		}	
+		return date;
+	}
 }
