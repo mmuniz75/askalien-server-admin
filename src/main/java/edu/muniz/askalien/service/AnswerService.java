@@ -51,8 +51,12 @@ public class AnswerService {
 		if(video.getNumber()==0)
 			throw new IllegalStateException("Video answer was not set");
 			
-		if(video.getId()==null || video.getId()==0)
-			answer.setVideo(videoService.getVideofromNumber(video.getNumber()));
+		Video remoteVideo = videoService.getVideofromNumber(video.getNumber());
+		
+		if(remoteVideo==null)
+			throw new IllegalStateException("Video " + video.getNumber() + " does not exists");
+		
+		answer.setVideo(remoteVideo);
 		
 		repo.save(answer);
 		
