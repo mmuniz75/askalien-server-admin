@@ -14,7 +14,7 @@ public interface AnswerRepository extends CrudRepository<Answer, Integer> {
 	
 	public AnswerSummary findById(Integer id);
 	
-	@Query("select answer from Answer answer order by id")
+	@Query("select answer from Answer answer order by id desc ")
 	public List<AnswerSummary> findAllSummary();
 	
 	@Query("SELECT new edu.muniz.askalien.model.Answer(answer.id,answer.subject,count(question.id)) "

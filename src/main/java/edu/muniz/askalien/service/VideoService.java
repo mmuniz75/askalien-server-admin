@@ -23,8 +23,9 @@ public class VideoService {
 	}
 
 
-	public void save(Video video) {
+	public Video save(Video video) {
 		videoRepo.save(video);
+		return video;
 	}
 	
 

@@ -29,8 +29,8 @@ public class VideoRest {
 	}
 		
 	@RequestMapping(method=RequestMethod.POST,value="/video")
-	public void addAnswer(@RequestBody Video video){
-		service.save(video);
+	public Video addAnswer(@RequestBody Video video){
+		return service.save(video);
 	}
 	
 }

@@ -43,8 +43,8 @@ public class AnswerRest {
 	}
 	
 	@RequestMapping(method=RequestMethod.POST,value="/answer")
-	public void addAnswer(@RequestBody Answer answer){
-		service.save(answer);
+	public Answer addAnswer(@RequestBody Answer answer){
+		return service.save(answer);
 	}
 	
 	@RequestMapping("/topanswers")
