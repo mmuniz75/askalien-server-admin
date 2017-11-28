@@ -76,7 +76,7 @@ public class Answer implements Serializable,Model,Comparable<Answer>{
 	public String getDate() {
 		String date = "";
 		if(video!=null && video.getCreationDate()!=null)
-			date = video.getDate();
+			date = video.getFormatedCreationDate();
 			
 		return date;
 	}

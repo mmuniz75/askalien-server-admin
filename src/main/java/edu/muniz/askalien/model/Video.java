@@ -59,17 +59,8 @@ public class Video implements Model,Serializable{
 		this.creationDate = newObject.getCreationDate();
 	}
 	
-
-	public String getDate() {
-		String date = "";
-		if(creationDate!=null){
-			SimpleDateFormat dt1 = new SimpleDateFormat("MM/dd/yyyy");
-			date = dt1.format(creationDate);
-		}	
-		return date;
-	}
-	
-	public String getFormatedDate() {
+		
+	public String getFormatedCreationDate() {
 		String date = "";
 		if(creationDate!=null){
 			SimpleDateFormat dt1 = new SimpleDateFormat("yyyy-MM-dd");
