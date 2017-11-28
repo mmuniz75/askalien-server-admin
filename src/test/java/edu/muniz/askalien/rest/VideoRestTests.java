@@ -63,9 +63,9 @@ public class VideoRestTests {
 			.andExpect(status().isOk())
 			.andExpect(jsonPath("$", hasSize(count)))
 			.andExpect(jsonPath("$[0].id", is(videos.get(0).getId())))
-			.andExpect(jsonPath("$[0].date", is(videos.get(0).getDate())))
+			.andExpect(jsonPath("$[0].formatedCreationDate", is(videos.get(0).getFormatedCreationDate())))
 			.andExpect(jsonPath("$[" + last + "].id", is(videos.get(last).getId())))
-			.andExpect(jsonPath("$[" + last + "].date", is(videos.get(last).getDate())))
+			.andExpect(jsonPath("$[" + last + "].formatedCreationDate", is(videos.get(last).getFormatedCreationDate())))
 			
 		;
 		
