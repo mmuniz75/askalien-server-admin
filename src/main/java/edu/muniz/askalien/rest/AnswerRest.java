@@ -38,8 +38,8 @@ public class AnswerRest {
 	}
 	
 	@RequestMapping(method=RequestMethod.PUT,value="/answer")
-	public void updateAnswer(@RequestBody Answer answer){
-		service.update(answer);
+	public Answer updateAnswer(@RequestBody Answer answer){
+		return service.update(answer);
 	}
 	
 	@RequestMapping(method=RequestMethod.POST,value="/answer")

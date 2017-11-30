@@ -2,8 +2,10 @@ package edu.muniz.askalien;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
@@ -32,13 +34,22 @@ public class SecureConfig extends WebSecurityConfigurerAdapter{
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-		.antMatchers("/*").hasRole("USER")
+		//.anyRequest().permitAll()
+		.antMatchers("/**/**").hasRole("USER")
 		.antMatchers("/answer/*").hasRole("ADMIN")
 		.antMatchers("/video/*").hasRole("ADMIN")
-		.and().httpBasic();
+		.and().httpBasic()
+		;
 		
+		http.csrf().disable();
 	}
 	
+	@Override
+	public void configure(WebSecurity web) throws Exception {
+		web.ignoring().antMatchers(HttpMethod.OPTIONS, "/**");
+		super.configure(web);
+	}
+
 	@Bean
 	protected Module module() {
 	    return new Hibernate5Module();
@@ -55,6 +66,7 @@ public class SecureConfig extends WebSecurityConfigurerAdapter{
                 				"http://localhost",
                 				"http://aws-website-askalien-admin-8enqo.s3-website-us-east-1.amazonaws.com",
                 				"https://dtlfems0yypcj.cloudfront.net")
+                .allowedMethods("GET", "POST", "OPTIONS", "PUT")
                 ;
             }
         };

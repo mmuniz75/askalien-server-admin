@@ -40,8 +40,8 @@ public class AnswerService {
 		return saveOrUpdate(answer,true);
 	}
 		
-	public void update(Answer answer) {
-		saveOrUpdate(answer,false);
+	public Answer update(Answer answer) {
+		return saveOrUpdate(answer,false);
 	}
 	
 	private Answer saveOrUpdate(Answer answer,boolean save) {
