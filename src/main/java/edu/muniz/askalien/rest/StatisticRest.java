@@ -21,12 +21,12 @@ public class StatisticRest {
 	@Autowired
 	UsageService usageService;
 		
-	@RequestMapping("/statistics")
+	@RequestMapping("/admin/statistics")
 	public StatisticDTO getStatistics(){
 		return service.getAccessStatistic();
 	}
 	
-	@RequestMapping("/usage/{year}")
+	@RequestMapping("/admin/usage/{year}")
 	public List<Usage> getUsage(@PathVariable Short year){
 		return usageService.getUsageFromYear(year);
 	}

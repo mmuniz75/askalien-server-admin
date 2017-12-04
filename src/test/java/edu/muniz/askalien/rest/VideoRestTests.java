@@ -53,7 +53,7 @@ public class VideoRestTests {
 	@Test
 	public void getVideos() throws Exception{
 		
-		String URL="/videos";
+		String URL="/admin/videos";
 		
 		List<Video> videos = service.getList();
 		int count = videos.size();
@@ -73,12 +73,12 @@ public class VideoRestTests {
 	
 	@Test
 	public void getVideo() throws Exception{
-		String URL="/video/100";
+		String URL="/admin/video/100";
 				
 		this.mvc.perform(get(URL))	
 			.andExpect(status().isOk())
 			.andExpect(jsonPath("number", is(100)))
-			.andExpect(jsonPath("date", is("04/22/2013")))
+			.andExpect(jsonPath("formatedCreationDate", is("2013-04-22")))
 		;
 	}
 	
@@ -93,7 +93,7 @@ public class VideoRestTests {
 		Integer id = null;
 		try{
 		
-			String URL="/video";
+			String URL="/admin/video";
 			String requestJson = Util.getJson(video);
 			
 			this.mvc.perform(post(URL).contentType(MediaType.APPLICATION_JSON)

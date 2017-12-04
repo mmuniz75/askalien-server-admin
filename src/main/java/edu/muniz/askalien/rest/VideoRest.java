@@ -18,17 +18,17 @@ public class VideoRest {
 	@Autowired
 	VideoService service;
 		
-	@RequestMapping("/videos")
+	@RequestMapping("/admin/videos")
 	public List<Video> getVideos(){
 		return service.getList();
 	}
 		
-	@RequestMapping("/video/{id}")
+	@RequestMapping("/admin/video/{id}")
 	public Video getAnswerDetail(@PathVariable Integer id){
 		return service.getVideofromNumber(id);
 	}
 		
-	@RequestMapping(method=RequestMethod.POST,value="/video")
+	@RequestMapping(method=RequestMethod.POST,value="/admin/video")
 	public Video addAnswer(@RequestBody Video video){
 		return service.save(video);
 	}

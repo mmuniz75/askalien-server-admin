@@ -22,32 +22,32 @@ public class AnswerRest {
 	AnswerService service;
 	
 	
-	@RequestMapping("/answers")
+	@RequestMapping("/admin/answers")
 	public List<AnswerSummary> getAnswers(){
 		return service.getAnswers();
 	}
 	
-	@RequestMapping("/summary-answer/{id}")
+	@RequestMapping("/admin/summary-answer/{id}")
 	public AnswerSummary getAnswer(@PathVariable Integer id){
 		return service.getAnswerSummary(id);
 	}
 	
-	@RequestMapping("/answer/{id}")
+	@RequestMapping("/admin/answer/{id}")
 	public Answer getAnswerDetail(@PathVariable Integer id){
 		return service.getAnswer(id);
 	}
 	
-	@RequestMapping(method=RequestMethod.PUT,value="/answer")
+	@RequestMapping(method=RequestMethod.PUT,value="/admin/answer")
 	public Answer updateAnswer(@RequestBody Answer answer){
 		return service.update(answer);
 	}
 	
-	@RequestMapping(method=RequestMethod.POST,value="/answer")
+	@RequestMapping(method=RequestMethod.POST,value="/admin/answer")
 	public Answer addAnswer(@RequestBody Answer answer){
 		return service.save(answer);
 	}
 	
-	@RequestMapping("/topanswers")
+	@RequestMapping("/admin/topanswers")
 	public List<Answer> getTopAnswers(@RequestParam Boolean feedback){
 		List<Answer> answers = service.getTopAnswers(feedback); 
 		return answers;

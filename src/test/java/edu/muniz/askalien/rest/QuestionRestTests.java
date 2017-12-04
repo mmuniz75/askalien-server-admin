@@ -52,7 +52,7 @@ public class QuestionRestTests {
 	
 	@Test
 	public void testGetQuestions() throws Exception{
-		String URL="/questions";
+		String URL="/admin/questions";
 				
 		this.mvc.perform(get(URL))
 			.andExpect(status().isOk())
@@ -69,7 +69,7 @@ public class QuestionRestTests {
 	public void testGetQuestion() throws Exception{
 		final String CONTENT = "<font face=\"Arial, Verdana\"><span style=\"font-size: 13.3333330154419px;\">These planets are here in your own galaxy, a solar system 70 light years away. They are colonies of humanoids, very similar to this one.&nbsp;</span></font><div><font face=\"Arial, Ver";
 		final String SUBJECT = "In an earlier video you mentioned there are two other earth like planets getting ready to go thru stages in their development. Where are these planets located? How far along are they in their development?";
-		String URL="/question/83755";
+		String URL="/admin/question/83755";
 				
 		this.mvc.perform(get(URL))
 			.andExpect(status().isOk())
@@ -90,7 +90,7 @@ public class QuestionRestTests {
 	
 	@Test
 	public void getQuestionsWithFeedBack() throws Exception{
-		String URL="/questions";
+		String URL="/admin/questions";
 		
 		QuestionFilter filter = new QuestionFilter();
 		filter.setJustFeedback(true);
@@ -114,7 +114,7 @@ public class QuestionRestTests {
 		filter.setIpFilter(IP);
 		String requestJson = Util.getJson(filter);
 		
-		String URL="/questions";
+		String URL="/admin/questions";
 		this.mvc.perform(post(URL).contentType(MediaType.APPLICATION_JSON)
                 .content(requestJson))	
 				.andExpect(status().isOk())
@@ -131,7 +131,7 @@ public class QuestionRestTests {
 		filter.setQuestion(QUESTION);
 		String requestJson = Util.getJson(filter);
 		
-		String URL="/questions";
+		String URL="/admin/questions";
 		this.mvc.perform(post(URL).contentType(MediaType.APPLICATION_JSON)
                 .content(requestJson))	
 				.andExpect(status().isOk())
@@ -152,7 +152,7 @@ public class QuestionRestTests {
 		int count = questions.size();
 		int last = count-1;
 		
-		String URL="/questions";
+		String URL="/admin/questions";
 		this.mvc.perform(post(URL).contentType(MediaType.APPLICATION_JSON)
                 .content(requestJson))	
 				.andExpect(status().isOk())
@@ -173,7 +173,7 @@ public class QuestionRestTests {
 	
 		String requestJson = Util.getJson(filter);
 		
-		String URL="/questions";
+		String URL="/admin/questions";
 		this.mvc.perform(post(URL).contentType(MediaType.APPLICATION_JSON)
                 .content(requestJson))	
 				.andExpect(status().isOk())

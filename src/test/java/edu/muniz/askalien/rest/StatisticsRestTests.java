@@ -42,7 +42,7 @@ public class StatisticsRestTests {
 	@Test
 	public void getStatistics() throws Exception{
 		
-		String URL="/statistics";
+		String URL="/admin/statistics";
 			
 		this.mvc.perform(get(URL))	
 			.andExpect(status().isOk())
@@ -58,7 +58,7 @@ public class StatisticsRestTests {
 	@Test
 	public void getUsage() throws Exception{
 		
-		String URL="/usage/2016";
+		String URL="/admin/usage/2016";
 				
 		this.mvc.perform(get(URL))	
 			.andExpect(status().isOk())

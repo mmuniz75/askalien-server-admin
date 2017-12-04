@@ -42,7 +42,7 @@ public class CountryRestTests {
 	@Test
 	public void getCountries() throws Exception{
 		
-		String URL="/countries";
+		String URL="/admin/countries";
 		
 		List<Country> countries = service.getCountryQuestions();
 		int count = countries.size();

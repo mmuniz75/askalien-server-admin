@@ -16,12 +16,12 @@ public class CountryRest {
 	@Autowired
 	CountryService service;
 		
-	@RequestMapping("/countries")
+	@RequestMapping("/admin/countries")
 	public List<Country> getCountries(){
 		return service.getCountryQuestions();
 	}
 	
-	@RequestMapping("/countriesCode")
+	@RequestMapping("/admin/countriesCode")
 	public Map<String,String> getCountryQuestionsByCode(){
 		return service.getCountryQuestionsByCode();
 	}

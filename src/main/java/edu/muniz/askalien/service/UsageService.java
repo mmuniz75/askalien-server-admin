@@ -18,6 +18,7 @@ public class UsageService{
 	private UsageRepository repo;
 	
 	public List<Usage> getUsageFromYear(Short year){
+		repo.updateUsage();
 		return repo.findByYearOrderByMonthAsc(year);
 	}
 	

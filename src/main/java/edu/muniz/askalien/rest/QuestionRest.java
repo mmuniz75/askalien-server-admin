@@ -19,12 +19,12 @@ public class QuestionRest {
 	@Autowired
 	QuestionService service;
 	
-	@RequestMapping(method=RequestMethod.POST,value="/questions")
+	@RequestMapping(method=RequestMethod.POST,value="/admin/questions")
 	public List<Question> getQuestions(@RequestBody QuestionFilter filter){
 		return service.getQuestions(filter);
 	}
 	
-	@RequestMapping("/questions")
+	@RequestMapping("/admin/questions")
 	public List<Question> getQuestions(){
 		QuestionFilter filter = new QuestionFilter();
 		filter.setJustThisMonth(true);
@@ -33,18 +33,18 @@ public class QuestionRest {
 		
 	}
 	
-	@RequestMapping("/question/{id}")
+	@RequestMapping("/admin/question/{id}")
 	public Question getQuestion(@PathVariable Integer id){
 		return service.getQuestion(id);
 		
 	}
 		
-	@RequestMapping("/questions/count")
+	@RequestMapping("/admin/questions/count")
 	public Long getCountQuestions(){
 		return service.getCountQuestions();
 	}
 	
-	@RequestMapping("/questions/{id}")
+	@RequestMapping("/admin/questions/{id}")
 	public List<Question> getQuestionByAnswerId(@PathVariable Integer id){
 		return service.getQuestionsByAnwerId(id);
 		
