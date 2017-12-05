@@ -27,6 +27,15 @@ public class AnswerService {
 	public List<AnswerSummary>getAnswers(){
 		return repo.findAllSummary();
 	}
+	
+	public List<AnswerSummary>getListAnswers(){
+		return repo.findAllSummaryAsc();
+	}
+	
+	public List<AnswerSummary>getListAnswersBloc(Integer from,Integer to){
+		return repo.findAllSummaryBloc(from, to);
+	}
+	
 		
 	public AnswerSummary getAnswerSummary(Integer id){
 		return repo.findById(id);

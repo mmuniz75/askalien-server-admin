@@ -28,7 +28,7 @@ public class VideoRest {
 		return service.getVideofromNumber(id);
 	}
 		
-	@RequestMapping(method=RequestMethod.POST,value="/admin/video")
+	@RequestMapping(method=RequestMethod.POST,value="/admin2/video")
 	public Video addAnswer(@RequestBody Video video){
 		return service.save(video);
 	}

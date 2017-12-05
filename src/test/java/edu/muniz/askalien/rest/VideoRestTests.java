@@ -93,7 +93,7 @@ public class VideoRestTests {
 		Integer id = null;
 		try{
 		
-			String URL="/admin/video";
+			String URL="/admin2/video";
 			String requestJson = Util.getJson(video);
 			
 			this.mvc.perform(post(URL).contentType(MediaType.APPLICATION_JSON)

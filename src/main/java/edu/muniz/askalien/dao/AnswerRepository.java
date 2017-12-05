@@ -17,6 +17,12 @@ public interface AnswerRepository extends CrudRepository<Answer, Integer> {
 	@Query("select answer from Answer answer order by id desc ")
 	public List<AnswerSummary> findAllSummary();
 	
+	@Query("select answer from Answer answer order by id asc ")
+	public List<AnswerSummary> findAllSummaryAsc();
+	
+	@Query("select answer from Answer answer where id>=?1 and id<=?2 order by id asc ")
+	public List<AnswerSummary> findAllSummaryBloc(Integer from,Integer to);
+	
 	@Query("SELECT new edu.muniz.askalien.model.Answer(answer.id,answer.subject,count(question.id)) "
 			+ "FROM Question question join question.answer answer "
 			+ "GROUP BY answer.id, answer.subject "

@@ -170,7 +170,7 @@ public class AnswerRestTests {
 			answer.setUrl(URL_UDATED);
 			answer.setVideo(VIDEO_UDATED);
 			
-			String URL2="/admin/answer";
+			String URL2="/admin2/answer";
 			String requestJson = Util.getJson(answer);
 			
 			this.mvc.perform(put(URL2).contentType(MediaType.APPLICATION_JSON)
@@ -213,7 +213,7 @@ public class AnswerRestTests {
 			answer.setVideo(VIDEO);
 			
 						
-			String URL2="/admin/answer";
+			String URL2="/admin2/answer";
 			String requestJson = Util.getJson(answer);
 			
 			this.mvc.perform(post(URL2).contentType(MediaType.APPLICATION_JSON)

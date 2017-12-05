@@ -27,6 +27,16 @@ public class AnswerRest {
 		return service.getAnswers();
 	}
 	
+	@RequestMapping("/answers")
+	public List<AnswerSummary> getListAnswers(){
+		return service.getListAnswers();
+	}
+	
+	@RequestMapping("/answers/{from}/{to}")
+	public List<AnswerSummary> getListAnswersBloc(@PathVariable Integer from,@PathVariable Integer to){
+		return service.getListAnswersBloc(from, to);
+	}
+	
 	@RequestMapping("/admin/summary-answer/{id}")
 	public AnswerSummary getAnswer(@PathVariable Integer id){
 		return service.getAnswerSummary(id);
@@ -37,12 +47,12 @@ public class AnswerRest {
 		return service.getAnswer(id);
 	}
 	
-	@RequestMapping(method=RequestMethod.PUT,value="/admin/answer")
+	@RequestMapping(method=RequestMethod.PUT,value="/admin2/answer")
 	public Answer updateAnswer(@RequestBody Answer answer){
 		return service.update(answer);
 	}
 	
-	@RequestMapping(method=RequestMethod.POST,value="/admin/answer")
+	@RequestMapping(method=RequestMethod.POST,value="/admin2/answer")
 	public Answer addAnswer(@RequestBody Answer answer){
 		return service.save(answer);
 	}
