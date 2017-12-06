@@ -65,6 +65,8 @@ public class SecureConfig extends WebSecurityConfigurerAdapter{
                 				"http://localhost:4200",
                 				"http://localhost",
                 				"http://aws-website-askalien-admin-8enqo.s3-website-us-east-1.amazonaws.com",
+                				"http://aws-website-askalien-list-beeeo.s3-website-us-east-1.amazonaws.com",
+                				"https://d1f9y4sms1tvf6.cloudfront.net",
                 				"https://dtlfems0yypcj.cloudfront.net")
                 .allowedMethods("GET", "POST", "OPTIONS", "PUT")
                 ;
