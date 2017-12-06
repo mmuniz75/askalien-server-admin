@@ -47,6 +47,11 @@ public class AnswerRest {
 		return service.getAnswer(id);
 	}
 	
+	@RequestMapping("/answer/{id}")
+	public Answer getAnswerDetail2(@PathVariable Integer id){
+		return service.getAnswer(id);
+	}
+	
 	@RequestMapping(method=RequestMethod.PUT,value="/admin2/answer")
 	public Answer updateAnswer(@RequestBody Answer answer){
 		return service.update(answer);
