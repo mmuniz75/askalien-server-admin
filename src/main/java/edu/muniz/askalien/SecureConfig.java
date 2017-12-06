@@ -61,6 +61,7 @@ public class SecureConfig extends WebSecurityConfigurerAdapter{
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
                 .allowedOrigins("http://admin.askalien.men",
+                				"http://view.askalien.men",
                 				"http://localhost:4200",
                 				"http://localhost",
                 				"http://aws-website-askalien-admin-8enqo.s3-website-us-east-1.amazonaws.com",
