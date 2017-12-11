@@ -5,8 +5,6 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,7 +18,6 @@ import edu.muniz.askalien.dao.QuestionRepository;
 import edu.muniz.askalien.model.Answer;
 import edu.muniz.askalien.model.Question;
 import edu.muniz.askalien.model.Video;
-import edu.muniz.askalien.util.IndexingHelper;
 
 
 
@@ -30,9 +27,6 @@ public class AnswerServiceTests {
 	
 	@Autowired
 	AnswerService service;
-	
-	@Autowired
-	IndexingHelper indexing;
 	
 	@Autowired
 	private AnswerRepository repo;
@@ -97,29 +91,17 @@ public class AnswerServiceTests {
 			id = answer.getId();
 			answer = null;
 			
-			Map<Integer,Float> search = indexing.getIdsFromSearch("'" + SUBJECT + "'");
-			Set<Integer> ids = search.keySet(); 
-			
-			docId = ids.iterator().next();
-			answer = repo.findAnswerById(docId);
+			answer = repo.findAnswerById(id);
 			
 			assertEquals(SUBJECT,answer.getSubject());
 			assertEquals(CONTENT,answer.getContent());
 			
-			search = indexing.getIdsFromSearch("'" + CONTENT + "'");
-			ids = search.keySet(); 
-			
-			docId = ids.iterator().next();
-			answer = repo.findAnswerById(docId);
-			
-			assertEquals(SUBJECT,answer.getSubject());
-			assertEquals(CONTENT,answer.getContent());
+					
 			
 		}finally{
 			if(id!=null)
 				repo.delete(id);
-			if(docId!=null)
-				indexing.removeObject(docId);
+
 		}
 		
 	}
@@ -152,37 +134,17 @@ public class AnswerServiceTests {
 			answer.setContent(CONTENT_UPDATED);
 			answer.setSubject(SUBJECT_UPDATED);
 			service.update(answer);
-						
-			Map<Integer,Float> search = indexing.getIdsFromSearch("'" + SUBJECT + "'");
-			assertTrue(search.isEmpty());
-			
-			search = indexing.getIdsFromSearch("'" + SUBJECT_UPDATED + "'");
-			Set<Integer> ids = search.keySet(); 
-			
-			docId = ids.iterator().next();
-			answer = repo.findAnswerById(docId);
+							
+			answer = repo.findAnswerById(id);
 			
 			assertEquals(SUBJECT_UPDATED,answer.getSubject());
 			assertEquals(CONTENT_UPDATED,answer.getContent());
-			
-			search = indexing.getIdsFromSearch("'" + CONTENT + "'");
-			assertTrue(search.isEmpty());
-			
-			search = indexing.getIdsFromSearch("'" + CONTENT_UPDATED + "'");
-			
-			ids = search.keySet(); 
-			
-			docId = ids.iterator().next();
-			answer = repo.findAnswerById(docId);
-			
-			assertEquals(SUBJECT_UPDATED,answer.getSubject());
-			assertEquals(CONTENT_UPDATED,answer.getContent());
+		
 			
 		}finally{
 			if(id!=null)
 				repo.delete(id);
-			if(docId!=null)
-				indexing.removeObject(docId);
+	
 		}
 		
 	}

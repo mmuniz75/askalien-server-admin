@@ -7,20 +7,15 @@ import org.springframework.stereotype.Service;
 
 import edu.muniz.askalien.dao.AnswerRepository;
 import edu.muniz.askalien.dao.AnswerSummary;
-import edu.muniz.askalien.dao.VideoRepository;
 import edu.muniz.askalien.model.Answer;
 import edu.muniz.askalien.model.Video;
-import edu.muniz.askalien.util.IndexingHelper;
 
 @Service
 public class AnswerService {
 
 	@Autowired
 	private AnswerRepository repo;
-	
-	@Autowired
-	IndexingHelper indexing;
-	
+		
 	@Autowired
 	private VideoService videoService;
 	
@@ -69,13 +64,6 @@ public class AnswerService {
 		
 		repo.save(answer);
 		
-		String content = answer.getContent().replaceAll("\\<.*?>"," ");
-		content = content.replaceAll("&nbsp;"," ");
-		if(save)
-			indexing.indexObject(answer.getId(), answer.getSubject(), content);
-		else
-			indexing.updateIndexing(answer.getId(), answer.getSubject(), content);
-		
 		return answer;
 		
 	}
@@ -92,6 +80,5 @@ public class AnswerService {
 	
 	public void removeAnswer(Integer id){
 		repo.delete(id);
-		indexing.removeObject(id);
 	}
 }
