@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout">
+      
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+</head>
+  
+<body>
+	<div layout:fragment="content" class="container">
+	
+		<div class="right_col" role="main" >
+	
+	      <div class="row">
+	        <div class="col-md-12 col-sm-12 col-xs-12">
+	
+	        	<div class="x_panel">
+	            	<div class="x_title">
+		                <h2>Answers</h2>
+		                <div class="clearfix"></div>
+	              	</div>
+	              	<div class="x_content">
+		                <div class="table-responsive">
+		                  <table class="table table-striped jambo_table bulk_action">
+		                    <thead>
+		                      <tr class="headings">
+		                        <th class="column-title">Nº </th>
+		                        <th class="column-title">Question </th>
+		                        <th class="column-title no-link last">
+		                          <span class="nobr">Action</span>
+		                        </th>
+		                      </tr>
+		                    </thead>
+		
+		                    <tbody>
+		                      <tr class="even pointer" th:each="answer : ${answers}">
+		                        <td class=" " th:text="${answer.id}">1</td>
+		                        <td class=" " th:text="${answer.subject}">Is the planet Earth is undergoing a transformation in the near future?</td>
+		                        <td class=" last">
+		                          <a href="view" th:href="@{'/view/'+${answer.id}}">View</a>
+		                        </td>
+		                      </tr>
+		                    </tbody>
+		                  </table>
+		                </div>
+	            	</div>
+	            </div>
+	            
+	        </div>
+	      </div>
+	    </div>
+	 </div>  
+ </body>
+</html>

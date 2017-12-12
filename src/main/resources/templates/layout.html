@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	class=" js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths">
+<head lang="en">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Ask Alien 2</title>
+<!--<base href="/">-->
+<!--<base href=".">-->
+<base href=".">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link rel="stylesheet" media="screen" href="/css/blog_styles.css">
+<link rel="stylesheet" media="screen" href="/css/public_styles.css">
+<link rel="stylesheet" type="text/css" href="/css/style.css" title="style">
+
+</head>
+
+<body class="layout"
+	style="background: url(/images/Andromeda_Galaxy.jpg) repeat">
+	<div id="main">
+		<div id="header">
+			<div id="logo">
+				<img th:src="@{/images/mythi.png}" height="128" width="128"
+					align="left" style="margin-Top: 30px">
+				<div id="logo_text">
+					<!-- class="logo_colour", allows you to change the colour of the text -->
+					<h1>
+						Ask <span class="logo_colour">Alien 2</span>
+					</h1>
+					<h2>This is a database of questions done by people from the
+						Internet and answered by an alien from Andromeda Galaxy</h2>
+				</div>
+			</div>
+		</div>
+
+		<div class="layout_layer">
+			<main class="layout-main">
+			<div layout:fragment="content">content falso</div>
+			</main>
+		</div>
+
+		<div id="content_footer"></div>
+		<div id="footer">© Muniz | 2017 | version 12.3</div>
+	</div>
+
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+</head>
+<body>
+	<div layout:fragment="content" class="container">
+       <div class="grid-row has-top_border is-gray" id="questions">
+          <div class="grid-row-inner has-big_padding">
+            <div class="iquestions_list">
+              <div>
+                <div class="iquestion-inner_border">
+                  <div class="iquestion-inner">
+                    <div class="iquestion-icon"></div>
+                    <div class="iquestion-info">
+                      <div class="iquestion-info_body" >
+                        <p th:text="${answer.subject}">Is the planet Earth is undergoing a transformation in the near future?></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div class="iquestion_answer-wrapper">
+                    <div class="iquestion_answer-inner">
+                      <div class="iquestion_answer-icon"></div>
+                      <div class="iquestion_answer-body content_body is-small">
+                           <p th:utext="${answer.content}">
+                          It is an era of change for the Earth, including the rest of&nbsp; the planets in the solar system.
+                       </p>
+                   <p th:text="${#calendars.format(answer.video.creationDate,'MM/dd/yyyy')}">09/10/2010</p>
+                      </div>
+                    </div>
+                    <div class="iquestion-info_body" style="text-align:center">
+                      <a href="http://askalien.men/" >Ask more questions</a>
+                      <div class="clearfix"></div>
+                    </div>
+                    <br>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+  	</div>       
+ </body>
+ </html>
