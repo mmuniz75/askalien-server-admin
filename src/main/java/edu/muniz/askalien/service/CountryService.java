@@ -47,6 +47,8 @@ public class CountryService {
 		mapCountries.put("IRAN","ir");
 		mapCountries.put("ZIMBABWE","zw");
 		mapCountries.put("CAMBODIA","kh");
+		mapCountries.put("SRI LANKA","lk");
+		mapCountries.put("MOZAMBIQUE","mz");
 		
 	}
 	
