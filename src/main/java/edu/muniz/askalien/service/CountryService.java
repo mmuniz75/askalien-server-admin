@@ -50,6 +50,9 @@ public class CountryService {
 		mapCountries.put("SRI LANKA","lk");
 		mapCountries.put("MOZAMBIQUE","mz");
 		mapCountries.put("GEORGIA","ge");
+		mapCountries.put("KAZAKHSTAN","kz");
+		mapCountries.put("NEPAL","np");
+		mapCountries.put("ARMENIA","am");
 		
 	}
 	
