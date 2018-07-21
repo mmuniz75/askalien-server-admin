@@ -23,7 +23,6 @@ public class CountryService {
 			mapCountries.put(locale.getDisplayCountry().toUpperCase(), locale.getCountry().toLowerCase());
 		  }	
 		}
-		mapCountries.put("RUSSIAN FEDERATION","ru");
 		mapCountries.put("NEPAL","ne");
 		mapCountries.put("BARBADOS","bb");
 		mapCountries.put("GEORGIA","ka");
@@ -53,7 +52,7 @@ public class CountryService {
 		mapCountries.put("KAZAKHSTAN","kz");
 		mapCountries.put("NEPAL","np");
 		mapCountries.put("ARMENIA","am");
-		
+		mapCountries.put("KENYA","ke");
 	}
 	
 	public static String getCountryCode(String country){
