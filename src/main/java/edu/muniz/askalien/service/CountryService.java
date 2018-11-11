@@ -53,6 +53,8 @@ public class CountryService {
 		mapCountries.put("NEPAL","np");
 		mapCountries.put("ARMENIA","am");
 		mapCountries.put("KENYA","ke");
+		//mapCountries.put("REPUBLIC OF LITHUANIA","lt");
+		mapCountries.put("CAYMAN ISLANDS","ky");
 	}
 	
 	public static String getCountryCode(String country){

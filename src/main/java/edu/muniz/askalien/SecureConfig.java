@@ -60,6 +60,8 @@ public class SecureConfig extends WebSecurityConfigurerAdapter{
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
+                .allowedMethods("GET", "POST", "OPTIONS", "PUT")
+                /*
                 .allowedOrigins("http://admin.askalien.men",
                 				"http://view.askalien.men",
                 				"http://localhost:4200",
@@ -70,9 +72,8 @@ public class SecureConfig extends WebSecurityConfigurerAdapter{
                 				"https://d1f9y4sms1tvf6.cloudfront.net",
                 			 	"http://d3ex7hi0z1k3fp.cloudfront.net",
                 				"https://d3ex7hi0z1k3fp.cloudfront.net"
-                				)
-                .allowedMethods("GET", "POST", "OPTIONS", "PUT")
-                ;
+                				) */
+                                ;
             }
         };
     }
