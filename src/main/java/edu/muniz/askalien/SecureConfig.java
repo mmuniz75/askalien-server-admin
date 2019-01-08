@@ -63,6 +63,7 @@ public class SecureConfig extends WebSecurityConfigurerAdapter{
                 .allowedMethods("*")
                 .allowedHeaders("*")
                 .allowCredentials(true)
+                .allowedOrigins("http://admin.askalien.men")
                 .allowedOrigins("*");
             }
         };
