@@ -2,9 +2,12 @@ package edu.muniz.askalien.service;
 
 import java.util.List;
 
+import org.jsoup.Jsoup;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import edu.muniz.askalien.client.ElastickSearchClient;
+import edu.muniz.askalien.client.SearchRequest;
 import edu.muniz.askalien.dao.AnswerRepository;
 import edu.muniz.askalien.dao.AnswerSummary;
 import edu.muniz.askalien.model.Answer;
@@ -16,6 +19,9 @@ public class AnswerService {
 	@Autowired
 	private AnswerRepository repo;
 		
+	@Autowired
+	private ElastickSearchClient search;
+	
 	@Autowired
 	private VideoService videoService;
 	
@@ -63,6 +69,8 @@ public class AnswerService {
 		answer.setVideo(remoteVideo);
 		
 		repo.save(answer);
+		
+		search.putAnswer(SearchRequest.builder().subject(answer.getSubject()).content(Jsoup.parse(answer.getContent()).text()).build(), answer.getId());
 		
 		return answer;
 		
