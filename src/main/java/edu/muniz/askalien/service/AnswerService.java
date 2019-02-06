@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.jsoup.Jsoup;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import edu.muniz.askalien.client.ElastickSearchClient;
@@ -15,6 +16,9 @@ import edu.muniz.askalien.model.Video;
 
 @Service
 public class AnswerService {
+	
+	@Value("${elastick.search.enable:false}")
+	private Boolean elastickEanble;
 
 	@Autowired
 	private AnswerRepository repo;
@@ -70,7 +74,8 @@ public class AnswerService {
 		
 		repo.save(answer);
 		
-		search.putAnswer(SearchRequest.builder().subject(answer.getSubject()).content(Jsoup.parse(answer.getContent()).text()).build(), answer.getId());
+		if(elastickEanble)
+			search.putAnswer(SearchRequest.builder().subject(answer.getSubject()).content(Jsoup.parse(answer.getContent()).text()).build(), answer.getId());
 		
 		return answer;
 		
