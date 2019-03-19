@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 @FeignClient(name = "elastick-search-askalien", url = "${uri.elasticksearch.host}")
 public interface ElastickSearchClient {
 		
-	@PutMapping(value="/answers-v3/_doc/{id}")
+	@PutMapping(value="/answers-v3/doc/{id}")
 	public void putAnswer(@RequestBody SearchRequest request,@PathVariable(name="id") int id);
 
 }
