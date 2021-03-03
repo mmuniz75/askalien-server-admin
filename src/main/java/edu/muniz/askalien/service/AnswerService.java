@@ -74,8 +74,8 @@ public class AnswerService {
 		
 		repo.save(answer);
 		
-		if(elastickEanble)
-			search.putAnswer(SearchRequest.builder().subject(answer.getSubject()).content(Jsoup.parse(answer.getContent()).text()).build(), answer.getId());
+		//if(elastickEanble)
+//			search.putAnswer(SearchRequest.builder().subject(answer.getSubject()).content(Jsoup.parse(answer.getContent()).text()).build(), answer.getId());
 		
 		return answer;
 		
