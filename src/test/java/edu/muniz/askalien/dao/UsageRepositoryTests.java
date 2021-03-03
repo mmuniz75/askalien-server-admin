@@ -51,20 +51,21 @@ public class UsageRepositoryTests {
 		int newUsers = usage.getNewUsers();
 		
 		Integer questionId = -1;
-		try{
+
+		try {
 			Question question = new Question();
 			question.setText("some question");
 			question.setIp("1.2.3.4.5");
 			questionRepo.save(question);
 			questionId = question.getId();
-		
+
 			repo.updateUsage();
-									
-			usages = repo.findByYearOrderByMonthAsc((short)year);
-			usage = usages.get(month-1);
-			
-			assertTrue(usage.getNumberUsers() == countUsers+1);
-			assertTrue(usage.getNewUsers() == newUsers+1);
+
+			usages = repo.findByYearOrderByMonthAsc((short) year);
+			usage = usages.get(month - 1);
+
+			assertTrue(usage.getNumberUsers() == countUsers + 1);
+			assertTrue(usage.getNewUsers() == newUsers + 1);
 
 		}finally{
 			if(questionId > 0) {
