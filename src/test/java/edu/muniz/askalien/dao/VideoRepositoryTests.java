@@ -84,6 +84,7 @@ public class VideoRepositoryTests {
 			video = repo.findOne(id);
 			assertEquals(video.getNumber(),NUMBER);
 			assertTrue(video.getCreationDate().compareTo(CREATION_DATE_UPDATED)==0);
+
 		}finally{
 			repo.delete(id);
 		}
