@@ -159,7 +159,7 @@ public class AnswerRestTests {
 			answer.setUrl(URL);
 			answer.setVideo(VIDEO);
 			
-			repo.save(answer);
+			answer = repo.save(answer);
 			id = answer.getId();
 			
 			answer = null;
